@@ -18,10 +18,10 @@
       z-index: 1;
     }
 
-    #camera-screen, #preview-screen, #thanks-screen { display: none; }
-    #camera-screen { background: #1a0c05; z-index: 5; }
-    #preview-screen { background: #221007; z-index: 10; }
-    #thanks-screen { background: #2b170c; z-index: 10; }
+    #start-screen { z-index: 50; display: flex; }
+    #camera-screen { display: none; background: #1a0c05; z-index: 10; }
+    #preview-screen { display: none; background: #221007; z-index: 20; }
+    #thanks-screen { display: none; background: #2b170c; z-index: 30; }
 
     .thanks-content {
       position: relative;
@@ -37,11 +37,11 @@
     
     .btn-container {
       position: absolute;
-      bottom: 6%;
+      bottom: 8%;
       width: 100%;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 14px;
       align-items: center;
       z-index: 10;
     }
@@ -49,7 +49,7 @@
     .btn {
       width: 82%;
       max-width: 320px;
-      padding: 15px 24px;
+      padding: 16px 24px;
       font-size: 1.05rem;
       font-weight: bold;
       color: #ffffff;
@@ -57,28 +57,28 @@
       border: 2px solid #e2a862;
       border-radius: 50px;
       cursor: pointer;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.5);
+      box-shadow: 0 4px 18px rgba(0,0,0,0.6);
     }
     .btn:active { transform: scale(0.96); }
     
     .btn-secondary {
-      background: rgba(43, 23, 12, 0.65);
+      background: rgba(43, 23, 12, 0.8);
       border-color: #d18d41;
       backdrop-filter: blur(6px);
     }
 
     .counter-badge {
       position: absolute;
-      top: 20px;
-      background: rgba(43, 23, 12, 0.75);
+      top: 15px;
+      background: rgba(43, 23, 12, 0.85);
       backdrop-filter: blur(6px);
       border: 2px solid #d18d41;
       color: #f7e3ca;
-      padding: 8px 18px;
+      padding: 6px 16px;
       border-radius: 30px;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       font-weight: bold;
-      z-index: 10;
+      z-index: 15;
     }
     
     #video { width: 100%; height: 100%; object-fit: cover; }
@@ -89,21 +89,23 @@
     
     .style-selector {
       position: absolute;
-      top: 15px;
+      top: 12px;
       width: 100%;
       display: flex;
       justify-content: center;
-      gap: 8px;
-      z-index: 10;
+      gap: 6px;
+      z-index: 15;
+      padding: 0 10px;
+      flex-wrap: wrap;
     }
 
     .style-btn {
-      background: rgba(43, 23, 12, 0.75);
+      background: rgba(43, 23, 12, 0.85);
       border: 2px solid #d18d41;
       color: #f7e3ca;
-      padding: 6px 14px;
+      padding: 6px 12px;
       border-radius: 20px;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       font-weight: bold;
       cursor: pointer;
       backdrop-filter: blur(5px);
@@ -117,15 +119,15 @@
 
     .challenge-box {
       position: absolute;
-      top: 60px;
+      top: 65px;
       width: 90%;
       max-width: 360px;
-      background: rgba(43, 23, 12, 0.82);
+      background: rgba(43, 23, 12, 0.88);
       backdrop-filter: blur(8px);
       border: 2px solid #d18d41;
       border-radius: 15px;
       padding: 10px 14px;
-      z-index: 10;
+      z-index: 15;
       color: #f7e3ca;
       display: flex;
       align-items: center;
@@ -137,43 +139,41 @@
       background: #f7e3ca;
       border: none;
       border-radius: 12px;
-      width: 42px;
-      height: 42px;
-      font-size: 1.4rem;
+      width: 40px;
+      height: 40px;
+      font-size: 1.3rem;
       cursor: pointer;
       display: flex;
       justify-content: center;
       align-items: center;
       flex-shrink: 0;
       box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-      transition: transform 0.2s;
     }
-    .dice-btn:active { transform: rotate(360deg) scale(0.9); }
 
     .challenge-text {
-      font-size: 0.88rem;
+      font-size: 0.85rem;
       text-align: left;
-      line-height: 1.25;
+      line-height: 1.2;
       font-weight: 500;
     }
     
     .camera-controls {
       position: absolute;
-      bottom: 30px;
+      bottom: 25px;
       width: 100%;
       display: flex;
-      justify-content: center;
+      justify-content: space-around;
       align-items: center;
-      gap: 25px;
-      z-index: 10;
+      z-index: 15;
+      padding: 0 30px;
     }
 
     .camera-btn {
-      width: 80px;
-      height: 80px;
+      width: 75px;
+      height: 75px;
       border-radius: 50%;
       background: #f7e3ca;
-      border: 6px solid #7c3a13;
+      border: 5px solid #7c3a13;
       box-shadow: 0 0 20px rgba(226, 168, 98, 0.7);
       cursor: pointer;
     }
@@ -182,11 +182,11 @@
       width: 50px;
       height: 50px;
       border-radius: 50%;
-      background: rgba(43, 23, 12, 0.6);
+      background: rgba(43, 23, 12, 0.8);
       backdrop-filter: blur(5px);
       border: 2px solid #d18d41;
       color: #f7e3ca;
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -245,7 +245,7 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      z-index: 20;
+      z-index: 100;
     }
     .spinner {
       border: 5px solid rgba(226, 168, 98, 0.2);
@@ -263,7 +263,6 @@
   <!-- SCHERMATA INIZIALE -->
   <div id="start-screen" class="screen">
     <img src="Fronte.png" class="bg-img" alt="Fronte">
-    <div class="counter-badge" id="counter-display">Foto scattate: 0</div>
     <div class="btn-container">
       <button class="btn" onclick="startCamera()">APRI FOTOCAMERA 📸</button>
       <button class="btn btn-secondary" onclick="document.getElementById('file-input').click()">CARICA DALLA GALLERIA 🖼️</button>
@@ -276,10 +275,13 @@
   <div id="camera-screen" class="screen">
     <video id="video" autoplay playsinline class="mirror filter-normal"></video>
     
+    <div class="counter-badge" id="counter-display">Foto scattate: 0</div>
+
     <div class="style-selector">
       <button class="style-btn active" id="btn-normal" onclick="setPhotoStyle('normal')">Normale</button>
-      <button class="style-btn" id="btn-polaroid" onclick="setPhotoStyle('polaroid')">Polaroid</button>
-      <button class="style-btn" id="btn-vintage" onclick="setPhotoStyle('vintage')">Vintage</button>
+      <button class="style-btn" id="btn-castagne" onclick="setPhotoStyle('castagne')">Cornice Castagne 🌰</button>
+      <button class="style-btn" id="btn-polaroid" onclick="setPhotoStyle('polaroid')">Polaroid 📷</button>
+      <button class="style-btn" id="btn-vintage" onclick="setPhotoStyle('vintage')">Vintage 📜</button>
     </div>
 
     <div class="challenge-box">
@@ -300,7 +302,7 @@
       <canvas id="preview-canvas-render"></canvas>
     </div>
     <div class="preview-controls">
-      <input type="text" id="user-dedica" class="dedica-input" placeholder="Scrivi i vostri nomi o una dedica..." maxlength="30" oninput="renderFinalPhoto()">
+      <input type="text" id="user-dedica" class="dedica-input" placeholder="Scrivi una dedica o i nomi..." maxlength="30" oninput="renderFinalPhoto()">
       <button class="btn" onclick="confirmAndUpload()">CONFERMA E SALVA 💾</button>
     </div>
   </div>
@@ -315,13 +317,12 @@
 
   <div id="loader">
     <div class="spinner"></div>
-    <p>Salvataggio in corso nell'album...</p>
+    <p>Salvataggio nell'album in corso...</p>
   </div>
 
   <canvas id="raw-canvas" style="display:none;"></canvas>
 
   <script>
-    // URL DELLA WEB APP GENERATO DA GOOGLE APPS SCRIPT
     const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxT-LvK-o22IcMGgiCm2q7iSAy1ukXDy7joThfnkR_5oEtruxZFDvdkXUoPegr5djcd1A/exec";
 
     let stream = null;
@@ -347,7 +348,6 @@
       let count = localStorage.getItem('balla_rulli_photo_count') || 0;
       document.getElementById('counter-display').innerText = `Foto scattate: ${count}`;
     }
-    updateCounterDisplay();
 
     function incrementCounter() {
       let count = parseInt(localStorage.getItem('balla_rulli_photo_count') || 0) + 1;
@@ -358,7 +358,8 @@
     function setPhotoStyle(style) {
       selectedStyle = style;
       document.querySelectorAll('.style-btn').forEach(b => b.classList.remove('active'));
-      document.getElementById('btn-' + style).classList.add('active');
+      const activeBtn = document.getElementById('btn-' + style);
+      if (activeBtn) activeBtn.classList.add('active');
 
       const video = document.getElementById('video');
       video.className = currentFacingMode === "user" ? "mirror " : "";
@@ -373,6 +374,7 @@
       if (stream) { stream.getTracks().forEach(track => track.stop()); }
       const video = document.getElementById('video');
       setPhotoStyle(selectedStyle);
+      updateCounterDisplay();
 
       try {
         stream = await navigator.mediaDevices.getUserMedia({ 
@@ -383,7 +385,7 @@
         document.getElementById('start-screen').style.display = 'none';
         document.getElementById('camera-screen').style.display = 'flex';
       } catch (err) {
-        alert("Attiva i permessi della fotocamera!");
+        alert("Attiva i permessi della fotocamera nel browser!");
       }
     }
 
@@ -443,6 +445,28 @@
       reader.readAsDataURL(file);
     }
 
+    function drawChestnutFrame(ctx, w, h) {
+      const borderWidth = Math.round(w * 0.06);
+      ctx.fillStyle = "#3d1e0d";
+      ctx.fillRect(0, 0, w, borderWidth);
+      ctx.fillRect(0, h - borderWidth, w, borderWidth);
+      ctx.fillRect(0, 0, borderWidth, h);
+      ctx.fillRect(w - borderWidth, 0, borderWidth, h);
+
+      ctx.strokeStyle = "#e2a862";
+      ctx.lineWidth = Math.round(w * 0.008);
+      ctx.strokeRect(borderWidth * 0.6, borderWidth * 0.6, w - (borderWidth * 1.2), h - (borderWidth * 1.2));
+
+      ctx.font = `${Math.round(w * 0.05)}px sans-serif`;
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+
+      ctx.fillText("🌰", borderWidth / 2, borderWidth / 2);
+      ctx.fillText("🌰", w - (borderWidth / 2), borderWidth / 2);
+      ctx.fillText("🌰", borderWidth / 2, h - (borderWidth / 2));
+      ctx.fillText("🌰", w - (borderWidth / 2), h - (borderWidth / 2));
+    }
+
     function renderFinalPhoto() {
       if (!capturedImageObj) return;
 
@@ -453,7 +477,7 @@
       let w = capturedImageObj.width;
       let h = capturedImageObj.height;
 
-      let extraBottom = (selectedStyle === 'polaroid' || dedica !== "") ? Math.round(w * 0.28) : 0;
+      let extraBottom = (selectedStyle === 'polaroid' || dedica !== "") ? Math.round(w * 0.25) : 0;
 
       canvas.width = w;
       canvas.height = h + extraBottom;
@@ -470,13 +494,17 @@
       ctx.drawImage(capturedImageObj, 0, 0);
       ctx.filter = 'none';
 
+      if (selectedStyle === 'castagne') {
+        drawChestnutFrame(ctx, w, h);
+      }
+
       if (selectedStyle === 'polaroid' || dedica !== "") {
         ctx.fillStyle = "#2b170c";
-        ctx.font = `bold ${Math.round(canvas.width * 0.04)}px sans-serif`;
+        ctx.font = `bold ${Math.round(canvas.width * 0.042)}px sans-serif`;
         ctx.textAlign = "center";
         
-        let textToPrint = dedica !== "" ? dedica : "Balla con i Rulli 2k26";
-        ctx.fillText(textToPrint, canvas.width / 2, h + ((canvas.height - h) / 2) + 10);
+        let textToPrint = dedica !== "" ? dedica : "Balla con i Rulli 2k26 🌰";
+        ctx.fillText(textToPrint, canvas.width / 2, h + ((canvas.height - h) / 2) + 5);
       }
     }
 
@@ -514,533 +542,10 @@
     function resetApp() {
       document.getElementById('thanks-screen').style.display = 'none';
       document.getElementById('preview-screen').style.display = 'none';
-      document.getElementById('start-screen').style.display = 'flex';
-      document.getElementById('user-dedica').value = "";
-      capturedImageObj = null;
-      updateCounterDisplay();
-    }
-  </script>
-</body>
-        </html><!DOCTYPE html>
-<html lang="it">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Balla con i Rulli - Photo Booth</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body, html { width: 100%; height: 100%; font-family: system-ui, -apple-system, sans-serif; overflow: hidden; background-color: #2b170c; }
-    
-    .screen { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
-    
-    .bg-img {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      object-fit: cover;
-      z-index: 1;
-    }
-
-    #camera-screen, #preview-screen, #thanks-screen { display: none; }
-    #camera-screen { background: #1a0c05; z-index: 5; }
-    #preview-screen { background: #221007; z-index: 10; }
-    #thanks-screen { background: #2b170c; z-index: 10; }
-
-    .thanks-content {
-      position: relative;
-      z-index: 10;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-      height: 100%;
-      justify-content: flex-end;
-      padding-bottom: 50px;
-    }
-    
-    .btn-container {
-      position: absolute;
-      bottom: 6%;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      align-items: center;
-      z-index: 10;
-    }
-
-    .btn {
-      width: 82%;
-      max-width: 320px;
-      padding: 15px 24px;
-      font-size: 1.05rem;
-      font-weight: bold;
-      color: #ffffff;
-      background: linear-gradient(135deg, #7c3a13, #4a1e06);
-      border: 2px solid #e2a862;
-      border-radius: 50px;
-      cursor: pointer;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.5);
-    }
-    .btn:active { transform: scale(0.96); }
-    
-    .btn-secondary {
-      background: rgba(43, 23, 12, 0.65);
-      border-color: #d18d41;
-      backdrop-filter: blur(6px);
-    }
-
-    .counter-badge {
-      position: absolute;
-      top: 20px;
-      background: rgba(43, 23, 12, 0.75);
-      backdrop-filter: blur(6px);
-      border: 2px solid #d18d41;
-      color: #f7e3ca;
-      padding: 8px 18px;
-      border-radius: 30px;
-      font-size: 0.9rem;
-      font-weight: bold;
-      z-index: 10;
-    }
-    
-    #video { width: 100%; height: 100%; object-fit: cover; }
-    .mirror { transform: scaleX(-1); }
-
-    .filter-normal { filter: none; }
-    .filter-vintage { filter: sepia(0.65) contrast(1.1) brightness(0.9); }
-    
-    .style-selector {
-      position: absolute;
-      top: 15px;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      z-index: 10;
-    }
-
-    .style-btn {
-      background: rgba(43, 23, 12, 0.75);
-      border: 2px solid #d18d41;
-      color: #f7e3ca;
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: bold;
-      cursor: pointer;
-      backdrop-filter: blur(5px);
-    }
-
-    .style-btn.active {
-      background: #7c3a13;
-      border-color: #fff;
-      box-shadow: 0 0 10px rgba(226, 168, 98, 0.8);
-    }
-
-    .challenge-box {
-      position: absolute;
-      top: 60px;
-      width: 90%;
-      max-width: 360px;
-      background: rgba(43, 23, 12, 0.82);
-      backdrop-filter: blur(8px);
-      border: 2px solid #d18d41;
-      border-radius: 15px;
-      padding: 10px 14px;
-      z-index: 10;
-      color: #f7e3ca;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-    }
-
-    .dice-btn {
-      background: #f7e3ca;
-      border: none;
-      border-radius: 12px;
-      width: 42px;
-      height: 42px;
-      font-size: 1.4rem;
-      cursor: pointer;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-shrink: 0;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-      transition: transform 0.2s;
-    }
-    .dice-btn:active { transform: rotate(360deg) scale(0.9); }
-
-    .challenge-text {
-      font-size: 0.88rem;
-      text-align: left;
-      line-height: 1.25;
-      font-weight: 500;
-    }
-    
-    .camera-controls {
-      position: absolute;
-      bottom: 30px;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 25px;
-      z-index: 10;
-    }
-
-    .camera-btn {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      background: #f7e3ca;
-      border: 6px solid #7c3a13;
-      box-shadow: 0 0 20px rgba(226, 168, 98, 0.7);
-      cursor: pointer;
-    }
-
-    .switch-btn {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: rgba(43, 23, 12, 0.6);
-      backdrop-filter: blur(5px);
-      border: 2px solid #d18d41;
-      color: #f7e3ca;
-      font-size: 1.4rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-    }
-
-    #preview-img-container {
-      width: 100%;
-      height: 65%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 15px;
-    }
-
-    #preview-canvas-render {
-      max-width: 100%;
-      max-height: 100%;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.8);
-    }
-
-    .preview-controls {
-      height: 35%;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      gap: 12px;
-      padding: 10px 20px;
-    }
-
-    .dedica-input {
-      width: 90%;
-      max-width: 320px;
-      padding: 12px 18px;
-      font-size: 1rem;
-      border-radius: 25px;
-      border: 2px solid #d18d41;
-      background: rgba(43, 23, 12, 0.6);
-      color: #fff;
-      text-align: center;
-      outline: none;
-    }
-    .dedica-input::placeholder { color: rgba(247, 227, 202, 0.7); }
-
-    #loader {
-      display: none;
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(26, 12, 5, 0.94);
-      color: #f7e3ca;
-      font-size: 1.2rem;
-      font-weight: bold;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      z-index: 20;
-    }
-    .spinner {
-      border: 5px solid rgba(226, 168, 98, 0.2);
-      border-top: 5px solid #e2a862;
-      border-radius: 50%;
-      width: 55px; height: 55px;
-      animation: spin 1s linear infinite;
-      margin-bottom: 20px;
-    }
-    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-  </style>
-</head>
-<body>
-
-  <!-- SCHERMATA INIZIALE -->
-  <div id="start-screen" class="screen">
-    <img src="Fronte.png" class="bg-img" alt="Fronte">
-    <div class="counter-badge" id="counter-display">Foto scattate: 0</div>
-    <div class="btn-container">
-      <button class="btn" onclick="startCamera()">APRI FOTOCAMERA 📸</button>
-      <button class="btn btn-secondary" onclick="document.getElementById('file-input').click()">CARICA DALLA GALLERIA 🖼️</button>
-    </div>
-  </div>
-
-  <input type="file" id="file-input" accept="image/*" style="display: none;" onchange="handleGalleryUpload(event)">
-
-  <!-- SCHERMATA FOTOCAMERA -->
-  <div id="camera-screen" class="screen">
-    <video id="video" autoplay playsinline class="mirror filter-normal"></video>
-    
-    <div class="style-selector">
-      <button class="style-btn active" id="btn-normal" onclick="setPhotoStyle('normal')">Normale</button>
-      <button class="style-btn" id="btn-polaroid" onclick="setPhotoStyle('polaroid')">Polaroid</button>
-      <button class="style-btn" id="btn-vintage" onclick="setPhotoStyle('vintage')">Vintage</button>
-    </div>
-
-    <div class="challenge-box">
-      <button class="dice-btn" onclick="rollDice()">🎲</button>
-      <div class="challenge-text" id="challenge-text">Tocca il dado per la sfida foto di "Balla con i Rulli"!</div>
-    </div>
-
-    <div class="camera-controls">
-      <div style="width: 50px;"></div>
-      <button class="camera-btn" onclick="takePhoto()"></button>
-      <button class="switch-btn" onclick="switchCamera()">🔄</button>
-    </div>
-  </div>
-
-  <!-- SCHERMATA ANTEPRIMA ED EDITING -->
-  <div id="preview-screen" class="screen">
-    <div id="preview-img-container">
-      <canvas id="preview-canvas-render"></canvas>
-    </div>
-    <div class="preview-controls">
-      <input type="text" id="user-dedica" class="dedica-input" placeholder="Scrivi i vostri nomi o una dedica..." maxlength="30" oninput="renderFinalPhoto()">
-      <button class="btn" onclick="confirmAndUpload()">CONFERMA E SALVA 💾</button>
-    </div>
-  </div>
-
-  <!-- SCHERMATA DI RINGRAZIAMENTO -->
-  <div id="thanks-screen" class="screen">
-    <img src="Retro.png" class="bg-img" alt="Retro">
-    <div class="thanks-content">
-      <button class="btn" onclick="resetApp()">FAI UN'ALTRA FOTO 📸</button>
-    </div>
-  </div>
-
-  <div id="loader">
-    <div class="spinner"></div>
-    <p>Salvataggio in corso nell'album...</p>
-  </div>
-
-  <canvas id="raw-canvas" style="display:none;"></canvas>
-
-  <script>
-    // URL DELLA WEB APP GENERATO DA GOOGLE APPS SCRIPT
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxT-LvK-o22IcMGgiCm2q7iSAy1ukXDy7joThfnkR_5oEtruxZFDvdkXUoPegr5djcd1A/exec";
-
-    let stream = null;
-    let currentFacingMode = "user";
-    let selectedStyle = "normal";
-    let capturedImageObj = null;
-
-    const challenges = [
-      "Foto con LaFatinaDJ o vicino alla console 🎧",
-      "Foto mentre addenti lo Street Food dell’Alpe 🍔",
-      "Foto con un Drink o durante un brindisi al bar 🍸",
-      "Scatto rubato mentre balli in piazza 💃",
-      "Foto di gruppo con almeno 5 persone 🤳",
-      "Foto di gruppo con una posa o gesto da DJ 🎧"
-    ];
-
-    function rollDice() {
-      const randomIndex = Math.floor(Math.random() * challenges.length);
-      document.getElementById('challenge-text').innerText = challenges[randomIndex];
-    }
-
-    function updateCounterDisplay() {
-      let count = localStorage.getItem('balla_rulli_photo_count') || 0;
-      document.getElementById('counter-display').innerText = `Foto scattate: ${count}`;
-    }
-    updateCounterDisplay();
-
-    function incrementCounter() {
-      let count = parseInt(localStorage.getItem('balla_rulli_photo_count') || 0) + 1;
-      localStorage.setItem('balla_rulli_photo_count', count);
-      updateCounterDisplay();
-    }
-
-    function setPhotoStyle(style) {
-      selectedStyle = style;
-      document.querySelectorAll('.style-btn').forEach(b => b.classList.remove('active'));
-      document.getElementById('btn-' + style).classList.add('active');
-
-      const video = document.getElementById('video');
-      video.className = currentFacingMode === "user" ? "mirror " : "";
-      if (style === 'vintage') {
-        video.classList.add('filter-vintage');
-      } else {
-        video.classList.add('filter-normal');
-      }
-    }
-
-    async function startCamera() {
-      if (stream) { stream.getTracks().forEach(track => track.stop()); }
-      const video = document.getElementById('video');
-      setPhotoStyle(selectedStyle);
-
-      try {
-        stream = await navigator.mediaDevices.getUserMedia({ 
-          video: { facingMode: currentFacingMode }, 
-          audio: false 
-        });
-        video.srcObject = stream;
-        document.getElementById('start-screen').style.display = 'none';
-        document.getElementById('camera-screen').style.display = 'flex';
-      } catch (err) {
-        alert("Attiva i permessi della fotocamera!");
-      }
-    }
-
-    function switchCamera() {
-      currentFacingMode = (currentFacingMode === "user") ? "environment" : "user";
-      startCamera();
-    }
-
-    function goToPreviewScreen(imgObj) {
-      if (stream) { stream.getTracks().forEach(track => track.stop()); }
-      capturedImageObj = imgObj;
-
-      document.getElementById('start-screen').style.display = 'none';
       document.getElementById('camera-screen').style.display = 'none';
-      document.getElementById('preview-screen').style.display = 'flex';
-      
-      renderFinalPhoto();
-    }
-
-    function takePhoto() {
-      const video = document.getElementById('video');
-      const rawCanvas = document.getElementById('raw-canvas');
-      const ctx = rawCanvas.getContext('2d');
-
-      let w = video.videoWidth || 1080;
-      let h = video.videoHeight || 1920;
-
-      rawCanvas.width = w;
-      rawCanvas.height = h;
-
-      if (currentFacingMode === "user") {
-        ctx.translate(w, 0);
-        ctx.scale(-1, 1);
-      }
-
-      ctx.drawImage(video, 0, 0, w, h);
-
-      const img = new Image();
-      img.onload = function() {
-        goToPreviewScreen(img);
-      }
-      img.src = rawCanvas.toDataURL('image/png');
-    }
-
-    function handleGalleryUpload(event) {
-      const file = event.target.files[0];
-      if (!file) return;
-
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        const img = new Image();
-        img.onload = function() {
-          goToPreviewScreen(img);
-        }
-        img.src = e.target.result;
-      }
-      reader.readAsDataURL(file);
-    }
-
-    function renderFinalPhoto() {
-      if (!capturedImageObj) return;
-
-      const canvas = document.getElementById('preview-canvas-render');
-      const ctx = canvas.getContext('2d');
-      const dedica = document.getElementById('user-dedica').value.trim();
-
-      let w = capturedImageObj.width;
-      let h = capturedImageObj.height;
-
-      let extraBottom = (selectedStyle === 'polaroid' || dedica !== "") ? Math.round(w * 0.28) : 0;
-
-      canvas.width = w;
-      canvas.height = h + extraBottom;
-
-      if (selectedStyle === 'polaroid' || dedica !== "") {
-        ctx.fillStyle = "#ffffff";
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-      }
-
-      if (selectedStyle === 'vintage') {
-        ctx.filter = 'sepia(0.65) contrast(1.1) brightness(0.9)';
-      }
-
-      ctx.drawImage(capturedImageObj, 0, 0);
-      ctx.filter = 'none';
-
-      if (selectedStyle === 'polaroid' || dedica !== "") {
-        ctx.fillStyle = "#2b170c";
-        ctx.font = `bold ${Math.round(canvas.width * 0.04)}px sans-serif`;
-        ctx.textAlign = "center";
-        
-        let textToPrint = dedica !== "" ? dedica : "Balla con i Rulli 2k26";
-        ctx.fillText(textToPrint, canvas.width / 2, h + ((canvas.height - h) / 2) + 10);
-      }
-    }
-
-    function confirmAndUpload() {
-      const canvas = document.getElementById('preview-canvas-render');
-      const imageData = canvas.toDataURL('image/png');
-
-      incrementCounter();
-
-      document.getElementById('preview-screen').style.display = 'none';
-      document.getElementById('loader').style.display = 'flex';
-
-      const a = document.createElement('a');
-      a.href = imageData;
-      a.download = `Balla_con_i_Rulli_${Date.now()}.png`;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-
-      fetch(SCRIPT_URL, {
-        method: 'POST',
-        body: JSON.stringify({ image: imageData, mimeType: 'image/png' })
-      })
-      .then(res => res.json())
-      .then(() => {
-        document.getElementById('loader').style.display = 'none';
-        document.getElementById('thanks-screen').style.display = 'flex';
-      })
-      .catch(() => {
-        document.getElementById('loader').style.display = 'none';
-        document.getElementById('thanks-screen').style.display = 'flex';
-      });
-    }
-
-    function resetApp() {
-      document.getElementById('thanks-screen').style.display = 'none';
-      document.getElementById('preview-screen').style.display = 'none';
       document.getElementById('start-screen').style.display = 'flex';
       document.getElementById('user-dedica').value = "";
       capturedImageObj = null;
-      updateCounterDisplay();
     }
   </script>
 </body>
