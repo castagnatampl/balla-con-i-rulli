@@ -8,7 +8,7 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body, html { width: 100%; height: 100%; font-family: system-ui, -apple-system, sans-serif; overflow: hidden; background-color: #2b170c; }
     
-    .screen { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+    .screen { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: none; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
     
     .bg-img {
       position: absolute;
@@ -18,10 +18,10 @@
       z-index: 1;
     }
 
-    #start-screen { z-index: 50; display: flex; }
-    #camera-screen { display: none; background: #1a0c05; z-index: 10; }
-    #preview-screen { display: none; background: #221007; z-index: 20; }
-    #thanks-screen { display: none; background: #2b170c; z-index: 30; }
+    #start-screen { display: flex !important; z-index: 50; }
+    #camera-screen { z-index: 10; background: #1a0c05; }
+    #preview-screen { z-index: 20; background: #221007; }
+    #thanks-screen { z-index: 30; background: #2b170c; }
 
     .thanks-content {
       position: relative;
@@ -43,7 +43,7 @@
       flex-direction: column;
       gap: 14px;
       align-items: center;
-      z-index: 10;
+      z-index: 100;
     }
 
     .btn {
@@ -182,7 +182,7 @@
       width: 50px;
       height: 50px;
       border-radius: 50%;
-      background: rgba(43, 23, 12, 0.8);
+      background: rgba(43, 23, 12, 0.85);
       backdrop-filter: blur(5px);
       border: 2px solid #d18d41;
       color: #f7e3ca;
@@ -330,6 +330,9 @@
     let selectedStyle = "normal";
     let capturedImageObj = null;
 
+    const logoImg = new Image();
+    logoImg.src = "logo.png";
+
     const challenges = [
       "Foto con LaFatinaDJ o vicino alla console 🎧",
       "Foto mentre addenti lo Street Food dell’Alpe 🍔",
@@ -382,7 +385,7 @@
           audio: false 
         });
         video.srcObject = stream;
-        document.getElementById('start-screen').style.display = 'none';
+        document.getElementById('start-screen').style.setProperty('display', 'none', 'important');
         document.getElementById('camera-screen').style.display = 'flex';
       } catch (err) {
         alert("Attiva i permessi della fotocamera nel browser!");
@@ -398,7 +401,7 @@
       if (stream) { stream.getTracks().forEach(track => track.stop()); }
       capturedImageObj = imgObj;
 
-      document.getElementById('start-screen').style.display = 'none';
+      document.getElementById('start-screen').style.setProperty('display', 'none', 'important');
       document.getElementById('camera-screen').style.display = 'none';
       document.getElementById('preview-screen').style.display = 'flex';
       
@@ -446,7 +449,7 @@
     }
 
     function drawChestnutFrame(ctx, w, h) {
-      const borderWidth = Math.round(w * 0.06);
+      const borderWidth = Math.round(w * 0.05);
       ctx.fillStyle = "#3d1e0d";
       ctx.fillRect(0, 0, w, borderWidth);
       ctx.fillRect(0, h - borderWidth, w, borderWidth);
@@ -457,14 +460,11 @@
       ctx.lineWidth = Math.round(w * 0.008);
       ctx.strokeRect(borderWidth * 0.6, borderWidth * 0.6, w - (borderWidth * 1.2), h - (borderWidth * 1.2));
 
-      ctx.font = `${Math.round(w * 0.05)}px sans-serif`;
-      ctx.textAlign = "center";
-      ctx.textBaseline = "middle";
-
-      ctx.fillText("🌰", borderWidth / 2, borderWidth / 2);
-      ctx.fillText("🌰", w - (borderWidth / 2), borderWidth / 2);
-      ctx.fillText("🌰", borderWidth / 2, h - (borderWidth / 2));
-      ctx.fillText("🌰", w - (borderWidth / 2), h - (borderWidth / 2));
+      if (logoImg.complete && logoImg.naturalWidth !== 0) {
+        const iconSize = borderWidth * 1.8;
+        ctx.drawImage(logoImg, 10, 10, iconSize, iconSize);
+        ctx.drawImage(logoImg, w - iconSize - 10, 10, iconSize, iconSize);
+      }
     }
 
     function renderFinalPhoto() {
@@ -498,13 +498,21 @@
         drawChestnutFrame(ctx, w, h);
       }
 
+      if (logoImg.complete && logoImg.naturalWidth !== 0) {
+        const logoWidth = Math.round(w * 0.22);
+        const logoHeight = Math.round(logoWidth * (logoImg.naturalHeight / logoImg.naturalWidth));
+        const margin = Math.round(w * 0.03);
+        ctx.drawImage(logoImg, w - logoWidth - margin, h - logoHeight - margin, logoWidth, logoHeight);
+      }
+
       if (selectedStyle === 'polaroid' || dedica !== "") {
         ctx.fillStyle = "#2b170c";
         ctx.font = `bold ${Math.round(canvas.width * 0.042)}px sans-serif`;
         ctx.textAlign = "center";
         
-        let textToPrint = dedica !== "" ? dedica : "Balla con i Rulli 2k26 🌰";
-        ctx.fillText(textToPrint, canvas.width / 2, h + ((canvas.height - h) / 2) + 5);
+        if (dedica !== "") {
+          ctx.fillText(dedica, canvas.width / 2, h + ((canvas.height - h) / 2) + 5);
+        }
       }
     }
 
@@ -543,7 +551,7 @@
       document.getElementById('thanks-screen').style.display = 'none';
       document.getElementById('preview-screen').style.display = 'none';
       document.getElementById('camera-screen').style.display = 'none';
-      document.getElementById('start-screen').style.display = 'flex';
+      document.getElementById('start-screen').style.setProperty('display', 'flex', 'important');
       document.getElementById('user-dedica').value = "";
       capturedImageObj = null;
     }
