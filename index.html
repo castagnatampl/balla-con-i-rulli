@@ -525,6 +525,7 @@
       document.getElementById('preview-screen').style.display = 'none';
       document.getElementById('loader').style.display = 'flex';
 
+      // 1. Download locale sul dispositivo
       const a = document.createElement('a');
       a.href = imageData;
       a.download = `Balla_con_i_Rulli_${Date.now()}.png`;
@@ -532,16 +533,21 @@
       a.click();
       document.body.removeChild(a);
 
+      // 2. Invio a Google Drive (no-cors per evitare blocchi del browser)
       fetch(SCRIPT_URL, {
         method: 'POST',
-        body: JSON.stringify({ image: imageData, mimeType: 'image/png' })
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'text/plain'
+        },
+        body: JSON.stringify({ image: imageData })
       })
-      .then(res => res.json())
       .then(() => {
         document.getElementById('loader').style.display = 'none';
         document.getElementById('thanks-screen').style.display = 'flex';
       })
-      .catch(() => {
+      .catch((err) => {
+        console.error("Errore invio Drive:", err);
         document.getElementById('loader').style.display = 'none';
         document.getElementById('thanks-screen').style.display = 'flex';
       });
