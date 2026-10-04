@@ -323,7 +323,8 @@
   <canvas id="raw-canvas" style="display:none;"></canvas>
 
   <script>
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxT-LvK-o22IcMGgiCm2q7iSAy1ukXDy7joThfnkR_5oEtruxZFDvdkXUoPegr5djcd1A/exec";
+    // URL aggiornato dal nuovo deployment di Google Apps Script
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyPJdcYR3kwPRzvDIrDYa0TwrH6CqSpK-KCVGSyY909j5Ovq9EI56Tb-z8-7q-ee9Iu3g/exec";
 
     let stream = null;
     let currentFacingMode = "user";
@@ -533,7 +534,7 @@
       a.click();
       document.body.removeChild(a);
 
-      // 2. Invio a Google Drive (no-cors per evitare blocchi del browser)
+      // 2. Invio a Google Drive
       fetch(SCRIPT_URL, {
         method: 'POST',
         mode: 'no-cors',
