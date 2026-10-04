@@ -323,8 +323,8 @@
   <canvas id="raw-canvas" style="display:none;"></canvas>
 
   <script>
-    // URL aggiornato dal nuovo deployment di Google Apps Script
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyPJdcYR3kwPRzvDIrDYa0TwrH6CqSpK-KCVGSyY909j5Ovq9EI56Tb-z8-7q-ee9Iu3g/exec";
+    // URL Web App aggiornato
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyPJdcYR3kwPRzvDIrDYa0TvrH6CqSpK-KCVG5yY909j5Ovq9El56Tb-z8-7q-ae9iu3g/exec";
 
     let stream = null;
     let currentFacingMode = "user";
@@ -526,7 +526,7 @@
       document.getElementById('preview-screen').style.display = 'none';
       document.getElementById('loader').style.display = 'flex';
 
-      // 1. Download locale sul dispositivo
+      // 1. Download locale
       const a = document.createElement('a');
       a.href = imageData;
       a.download = `Balla_con_i_Rulli_${Date.now()}.png`;
@@ -565,3 +565,4 @@
   </script>
 </body>
 </html>
+
