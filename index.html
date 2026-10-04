@@ -499,11 +499,22 @@
         drawChestnutFrame(ctx, w, h);
       }
 
+      // Disegno sicuro del LOGO
+      function drawLogoNow() {
+        if (logoImg.complete && logoImg.naturalWidth !== 0) {
+          const logoWidth = Math.round(w * 0.22);
+          const logoHeight = Math.round(logoWidth * (logoImg.naturalHeight / logoImg.naturalWidth));
+          const margin = Math.round(w * 0.03);
+          ctx.drawImage(logoImg, w - logoWidth - margin, h - logoHeight - margin, logoWidth, logoHeight);
+        }
+      }
+
       if (logoImg.complete && logoImg.naturalWidth !== 0) {
-        const logoWidth = Math.round(w * 0.22);
-        const logoHeight = Math.round(logoWidth * (logoImg.naturalHeight / logoImg.naturalWidth));
-        const margin = Math.round(w * 0.03);
-        ctx.drawImage(logoImg, w - logoWidth - margin, h - logoHeight - margin, logoWidth, logoHeight);
+        drawLogoNow();
+      } else {
+        logoImg.onload = function() {
+          drawLogoNow();
+        };
       }
 
       if (selectedStyle === 'polaroid' || dedica !== "") {
@@ -565,4 +576,5 @@
   </script>
 </body>
 </html>
+
 
